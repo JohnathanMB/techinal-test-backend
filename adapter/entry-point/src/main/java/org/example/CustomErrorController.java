@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CustomErrorController implements ErrorController {
 
+    public static final String DEFAULT_ERROR_MESSAGE = "System error, please try again in a while";
+
     @RequestMapping("/error")
     public ResponseEntity<ResponseDto> handleError() {
 
@@ -18,7 +20,7 @@ public class CustomErrorController implements ErrorController {
                 .body(
                         new ResponseDto<>(
                                 HttpStatus.NOT_IMPLEMENTED.value(),
-                                "System error, please try againd in a while"
+                                DEFAULT_ERROR_MESSAGE
                         )
                 );
     }
