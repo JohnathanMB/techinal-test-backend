@@ -11,4 +11,7 @@ public record Client(
         String address,
         String city
 ) {
+    public Client() {
+        this("","","","","","","","","");
+    }
 }
