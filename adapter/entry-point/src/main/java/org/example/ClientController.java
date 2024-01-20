@@ -3,7 +3,6 @@ package org.example;
 import org.example.model.Client;
 import org.example.model.ResponseDto;
 import org.example.service.client.ClientService;
-import org.example.service.client.ClientServiceImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 @org.springframework.web.bind.annotation.RestController
 public class ClientController {
 
-    private ClientService clientService;
+    private final ClientService clientService;
 
     public ClientController(ClientService clientService) {
         this.clientService = clientService;
@@ -31,7 +30,7 @@ public class ClientController {
 
         return !client.idType().isEmpty()
                 ? ResponseEntity.ok().body(new ResponseDto<>(HttpStatus.OK.value(), client))
-                : ResponseEntity.badRequest().body(new ResponseDto<>(HttpStatus.OK.value(), "Client No found"));
+                : ResponseEntity.badRequest().body(new ResponseDto<>(HttpStatus.NOT_FOUND.value(), "Client No found"));
 
     }
 
