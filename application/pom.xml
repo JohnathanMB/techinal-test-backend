@@ -36,6 +36,12 @@
             <version>${version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>adapter</artifactId>
+            <version>${version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
