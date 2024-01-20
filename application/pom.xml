@@ -30,6 +30,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>core</artifactId>
+            <version>${version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
