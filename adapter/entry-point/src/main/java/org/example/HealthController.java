@@ -13,7 +13,7 @@ public class HealthController {
     private ResponseEntity<ResponseDto> testApi(){
         return ResponseEntity.ok().body(new ResponseDto<>(
                 HttpStatus.OK.value(),
-                "healt"
+                "health"
         ));
     }
 }
