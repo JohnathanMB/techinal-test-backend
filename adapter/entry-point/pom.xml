@@ -10,18 +10,11 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <groupId>org.example</groupId>
     <artifactId>entry-point</artifactId>
-
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.example</groupId>
+            <groupId>com.johnathan</groupId>
             <artifactId>core</artifactId>
             <version>${project.version}</version>
         </dependency>
