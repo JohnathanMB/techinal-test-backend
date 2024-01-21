@@ -33,13 +33,13 @@
         <dependency>
             <groupId>org.example</groupId>
             <artifactId>core</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.example</groupId>
             <artifactId>adapter</artifactId>
-            <version>${version}</version>
+            <version>${project.version}</version>
         </dependency>
 
     </dependencies>
