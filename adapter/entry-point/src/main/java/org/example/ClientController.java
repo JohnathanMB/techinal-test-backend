@@ -18,11 +18,6 @@ public class ClientController {
         this.clientService = clientService;
     }
 
-    @GetMapping("/hi")
-    private ResponseEntity<String> testApi(){
-        return new ResponseEntity<>("HOLA", HttpStatus.ACCEPTED);
-    }
-
     @GetMapping("/clients")
     private ResponseEntity<ResponseDto> getClients(){
 
