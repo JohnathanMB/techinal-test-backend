@@ -2,7 +2,6 @@ package org.example.service.client;
 
 import org.example.model.Client;
 
-import java.lang.ref.Cleaner;
 import java.util.List;
 
 public interface ClientService {

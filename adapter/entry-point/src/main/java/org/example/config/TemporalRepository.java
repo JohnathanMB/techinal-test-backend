@@ -1,5 +1,6 @@
 package org.example.config;
 
+
 import org.example.model.Client;
 import org.example.service.gateway.ClientRepository;
 
