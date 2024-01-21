@@ -80,4 +80,4 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: johnathan/technical-test:latest
+          tags: johnathanmb95/technical-test:latest
