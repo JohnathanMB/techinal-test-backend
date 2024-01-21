@@ -7,10 +7,7 @@ import org.example.service.gateway.ClientRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.function.Predicate;
+import java.util.*;
 
 @Configuration
 public class BeanConfiguration {
@@ -20,42 +17,44 @@ public class BeanConfiguration {
 
         return new ClientRepository() {
 
-            private List<Client> clients = List.of(
-                    new Client("C",
-                            "123",
-                            "Johnathan",
-                            "Arley",
-                            "Monsalve",
-                            "bello",
-                            "123456789",
-                            "calle san juan",
-                            "med"
-                    )
+
+            private static final Client client = new Client("C",
+                    "23445322",
+                    "Johnathan",
+                    "Arley",
+                    "Monsalve",
+                    "bello",
+                    "123456789",
+                    "calle san juan",
+                    "med"
             );
+
+            private Map<String, Client> clients = new HashMap<>(
+                    Map.of(client.idType().concat(client.idNumber()), client)
+            );
+
+
             @Override
             public Optional<List<Client>> getClients() {
-                return Optional.of(clients);
+                return Optional.of(clients.values().stream().toList());
             }
 
             @Override
             public Optional<Client> getClientByID(String idType, String idNumber) {
-                return clients.stream()
-                        .filter(getClientPredicate(idType, idNumber))
-                        .findFirst();
-            }
 
-            private static Predicate<Client> getClientPredicate(String idType, String idNumber) {
-                return client -> Objects.equals(client.idType(), idType) && Objects.equals(client.idNumber(), idNumber);
+                return Optional.ofNullable(clients.get(idType.concat(idNumber)));
             }
 
             @Override
             public Optional<Client> save(Client client) {
-                return Optional.empty();
+                String key =  client.idType().concat(client.idNumber());
+                clients.put(key,client);
+                return Optional.ofNullable(clients.get(key));
             }
 
             @Override
             public Optional<Client> delete(String idType, String idNumber) {
-                return Optional.empty();
+                return Optional.ofNullable(clients.remove(idType.concat(idNumber)));
             }
         };
     }
