@@ -17,6 +17,8 @@
 	<modules>
 		<module>core</module>
 		<module>application</module>
+		<module>adapter</module>
+		<module>adapter/entry-point</module>
 	</modules>
 	<properties>
 		<java.version>17</java.version>
