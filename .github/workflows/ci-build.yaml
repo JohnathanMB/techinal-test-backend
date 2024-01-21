@@ -3,12 +3,16 @@ on:
   pull_request:
     branches: [ main ]
     paths:
-      - 'src/**'
+      - 'adapter/entry-point/src/**'
+      - 'application/src/**'
+      - 'core/src/**'
       - '.github/workflows/ci-build.yaml'
   push:
     branches: [ main ]
     paths:
-      - 'src/**'
+      - 'adapter/entry-point/src/**'
+      - 'application/src/**'
+      - 'core/src/**'
       - '.github/workflows/ci-build.yaml'
 
 jobs:
@@ -38,7 +42,7 @@ jobs:
         run: mvn --batch-mode --update-snapshots verify
 
   docker-aws:
-    if: ${{ github.ref == 'refs/heads/main' }}
+    #if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     needs:
       - project-build
