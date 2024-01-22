@@ -3,13 +3,17 @@ on:
   pull_request:
     branches: [ main ]
     paths:
-      - 'src/**'
-      - '.github/workflows/app-workflow.yaml'
+      - 'adapter/entry-point/src/**'
+      - 'application/src/**'
+      - 'core/src/**'
+      - '.github/workflows/ci-build.yaml'
   push:
     branches: [ main ]
     paths:
-      - 'src/**'
-      - '.github/workflows/app-workflow.yaml'
+      - 'adapter/entry-point/src/**'
+      - 'application/src/**'
+      - 'core/src/**'
+      - '.github/workflows/ci-build.yaml'
 
 jobs:
   project-build:
@@ -37,7 +41,7 @@ jobs:
       - name: Run tests
         run: mvn --batch-mode --update-snapshots verify
 
-  docker-aws:
+  docker-hub:
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     needs:
@@ -76,4 +80,4 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: johnathan/technical-test:latest
+          tags: johnathanmb95/technical-test:latest
